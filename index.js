@@ -3,7 +3,7 @@ const cors = require('cors');
 const connectToDatabase = require('./utils/mongodb');
 
 const accountSid = 'AC76d34b5e87adddd340cdd78613d692fe';
-const authToken = 'a5b40a189020614a68ce2f65145e3f31';
+const authToken = 'a01858dee60322b08f03554802386e06';
 const client = require('twilio')(accountSid, authToken);
 
 const app = express();
