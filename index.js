@@ -4,8 +4,9 @@ const connectToDatabase = require('./utils/mongodb');
 
 // twilio secret key : F9RFP20EwcY2OcqLjY8rrddxETsZBuMP
 // twilio SID key : SK04f7d3853f5a5232276d7e1a7512a4fc
+// auth token : a5b40a189020614a68ce2f65145e3f31
 const accountSid = 'AC76d34b5e87adddd340cdd78613d692fe';
-const authToken = '2275fff65f064d6051ddb22f35a0db27';
+const authToken = 'a5b40a189020614a68ce2f65145e3f31';
 const client = require('twilio')(accountSid, authToken);
 
 const app = express();
@@ -20,7 +21,9 @@ app.post('/send-sms', async (req, res) => {
         const message = await client.messages.create({
             body: data?.text || '',
             from: '+14302335118',
-            to: '+919810153260',
+            to: '+918448443891',
+            // to: '+919810153260',
+            // to: "+918744869960"
         });
 
         await db.collection('sent-messages').insertOne({
@@ -31,6 +34,7 @@ app.post('/send-sms', async (req, res) => {
 
         res.json({ success: true });
     } catch (error) {
+        console.log("error : ", error)
         res.status(400).json({ success: false, error });
     }
 });
