@@ -2,9 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const connectToDatabase = require('./utils/mongodb');
 
-// twilio secret key : F9RFP20EwcY2OcqLjY8rrddxETsZBuMP
-// twilio SID key : SK04f7d3853f5a5232276d7e1a7512a4fc
-// auth token : a5b40a189020614a68ce2f65145e3f31
 const accountSid = 'AC76d34b5e87adddd340cdd78613d692fe';
 const authToken = 'a5b40a189020614a68ce2f65145e3f31';
 const client = require('twilio')(accountSid, authToken);
@@ -22,8 +19,7 @@ app.post('/send-sms', async (req, res) => {
             body: data?.text || '',
             from: '+14302335118',
             to: '+918448443891',
-            // to: '+919810153260',
-            // to: "+918744869960"
+            // to: '+919810153260', 
         });
 
         await db.collection('sent-messages').insertOne({
