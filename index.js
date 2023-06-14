@@ -2,19 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const connectToDatabase = require('./utils/mongodb');
 
-require('dotenv').config();
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// require('dotenv').config();
+const accountSid = "AC76d34b5e87adddd340cdd78613d692fe";
+const authToken = "a5b40a189020614a68ce2f65145e3f31";
 // // const apiSecret = 'crLgFtSOuyqO3oSrMOgXqGDe4XDEgOIB'
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-// const client = require('twilio')(accountSid, authToken);
+// const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const client = require('twilio')(accountSid, authToken);
 // const client = require('twilio')(apiKey, apiSecret, { accountSid: accountSid });
 const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON body data
 
 app.get('/', (req, res) => {
-    res.json({ status: "working 2" });
+    res.json({ status: "working 3" });
 });
 
 app.post('/send-sms', async (req, res) => {
