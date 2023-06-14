@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const connectToDatabase = require('./utils/mongodb');
 
-const accountSid = 'AC76d34b5e87adddd340cdd78613d692fe';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
 // const apiSecret = 'crLgFtSOuyqO3oSrMOgXqGDe4XDEgOIB'
-const authToken = 'a01858dee60322b08f03554802386e06';
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 // const client = require('twilio')(apiKey, apiSecret, { accountSid: accountSid });
 const app = express();
